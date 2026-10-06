@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1118">
+  <meta name="description" content="Monte um pool complementar de heróis de Overwatch por função, estilo de jogo e tipo de mapa.">
+  <meta property="og:title" content="OW Hero Pool Builder">
+  <meta property="og:description" content="Escolha seu estilo e receba um pool de heróis com cobertura complementar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://helioconde.github.io/ow-hero-pool-builder/">
+  <link rel="canonical" href="https://helioconde.github.io/ow-hero-pool-builder/">
+  <title>OW Hero Pool Builder — monte um pool complementar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="./">OW <span>Hero Pool Builder</span></a>
+      <div class="top-actions">
+        <span class="curated">ROSTER CURADO · MVP</span>
+        <button class="ghost" id="saved-toggle" type="button">Pools salvos</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">POOL PESSOAL · NÃO TIER LIST</p>
+          <h1>Menos heróis aleatórios.<br><span>Mais cobertura no seu pool.</span></h1>
+          <p>Escolha sua função, estilo e preferência mecânica. O builder monta um trio que tenta cobrir situações diferentes sem fugir completamente do jeito que você gosta de jogar.</p>
+        </div>
+        <aside class="hero-card">
+          <strong>Objetivo do MVP</strong>
+          <p>Encontrar um <b>herói âncora</b> que combina com você e dois complementos que ampliem alcance, mobilidade, ritmo e utilidade.</p>
+        </aside>
+      </section>
+
+      <section class="builder-grid">
+        <section class="panel">
+          <div class="section-head"><div><p class="eyebrow">1 · PERFIL</p><h2>Como você prefere jogar?</h2></div></div>
+          <form id="builder-form">
+            <div class="field-row three">
+              <label class="field"><span>Função</span><select id="role" name="role"><option value="Tank">Tank</option><option value="Damage">Dano</option><option value="Support">Suporte</option></select></label>
+              <label class="field"><span>Estilo principal</span><select id="style" name="style"><option value="any">Qualquer</option><option value="dive">Dive</option><option value="brawl">Brawl</option><option value="poke">Poke</option></select></label>
+              <label class="field"><span>Mapa / situação</span><select id="map" name="map"><option value="mixed">Misto</option><option value="open">Linhas abertas</option><option value="vertical">Verticalidade</option><option value="close">Espaços fechados</option></select></label>
+            </div>
+
+            <div class="field-row">
+              <label class="field"><span>Mecânica preferida</span><select id="aim" name="aim"><option value="any">Qualquer</option><option value="hitscan">Hitscan</option><option value="tracking">Tracking / feixe</option><option value="projectile">Projétil</option><option value="melee">Curta distância / melee</option></select></label>
+              <label class="field"><span>Mobilidade</span><select id="mobility" name="mobility"><option value="any">Qualquer</option><option value="high">Alta</option><option value="medium">Média</option><option value="low">Baixa</option></select></label>
+            </div>
+
+            <fieldset class="priority-field">
+              <legend>Quero priorizar</legend>
+              <div class="priority-options">
+                <label><input type="checkbox" name="priority" value="survivability"><span>Sobrevivência</span></label>
+                <label><input type="checkbox" name="priority" value="utility"><span>Utilidade</span></label>
+                <label><input type="checkbox" name="priority" value="pressure"><span>Pressão / dano</span></label>
+                <label><input type="checkbox" name="priority" value="peel"><span>Proteção / peel</span></label>
+              </div>
+            </fieldset>
+
+            <div class="comfort-block">
+              <div>
+                <span class="field-label">Heróis que você já joga</span>
+                <small>Opcional. Um deles pode virar a âncora do pool.</small>
+              </div>
+              <div id="comfort-heroes" class="hero-pills"></div>
+            </div>
+
+            <button class="primary" type="submit">Montar meu pool</button>
+          </form>
+        </section>
+
+        <aside class="panel result-panel">
+          <div class="section-head"><div><p class="eyebrow">2 · RECOMENDAÇÃO</p><h2>Seu pool complementar</h2></div></div>
+          <div id="pool-result" class="pool-result empty-state">
+            <strong>Configure seu perfil</strong>
+            <p>O trio recomendado aparece aqui com o motivo de cada escolha.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel roster-panel">
+        <div class="section-head roster-head">
+          <div><p class="eyebrow">ROSTER DO MVP</p><h2>Entenda os perfis usados pelo builder</h2></div>
+          <div class="role-tabs" id="role-tabs"><button class="active" data-role-view="Tank" type="button">Tank</button><button data-role-view="Damage" type="button">Dano</button><button data-role-view="Support" type="button">Suporte</button></div>
+        </div>
+        <div id="hero-roster" class="hero-roster"></div>
+      </section>
+
+      <section class="panel saved-panel" id="saved-panel" hidden>
+        <div class="section-head">
+          <div><p class="eyebrow">LOCAL</p><h2>Pools salvos neste dispositivo</h2></div>
+          <button class="icon-button" id="saved-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div id="saved-list" class="saved-list"></div>
+      </section>
+
+      <section class="about">
+        <div><p class="eyebrow">COMO LER</p><h2>Um pool bom não precisa cobrir tudo.</h2></div>
+        <p>O MVP favorece três heróis com alguma familiaridade entre si, mas procura evitar um trio que tenha exatamente a mesma fraqueza. As recomendações são heurísticas de aprendizado e não substituem balanceamento, patch notes ou treino.</p>
+      </section>
+    </main>
+
+    <footer>
+      <strong>OW Hero Pool Builder</strong>
+      <span>Projeto independente e não afiliado à Blizzard Entertainment. O roster do MVP é curado e não pretende ser uma tier list.</span>
+    </footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
