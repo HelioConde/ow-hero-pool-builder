@@ -1,0 +1,32 @@
+name: Static QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate JavaScript
+        run: |
+          node --check core.js
+          node --check app.js
+      - name: Test recommendation core
+        run: node --test tests/core.test.cjs
+      - name: Check MVP files
+        run: |
+          test -f index.html
+          test -f style.css
+          test -f FULLSTACK.md
+          grep -qi '<title' index.html
+          grep -qi 'meta name="viewport"' index.html
+          grep -qi 'ROSTER CURADO' index.html
+          grep -qi 'buildPool' core.js
+          grep -qi 'localStorage' app.js
