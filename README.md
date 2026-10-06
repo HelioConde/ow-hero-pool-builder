@@ -1,34 +1,47 @@
 # OW Hero Pool Builder
 
-**Area:** Overwatch
-**Priority:** P2
-**Queue position:** #28
+Monta um pool complementar de heróis de Overwatch por função, estilo, mapa e preferência mecânica.
 
-Monta um pool complementar de herois por funcao, mapa e preferencia.
+**Area:** Overwatch  
+**Priority:** P2  
+**Queue position original:** #28
 
-## Status
+## Estado atual
 
-Idea registered in the **Ideias IA Lab** portfolio. This repository is the independent workspace for research, prototype and product development.
+MVP funcional iniciado em 06/10/2026.
 
-## First-version goal
+- Tank, Dano e Suporte;
+- estilos Dive, Brawl e Poke;
+- preferência por hitscan, tracking, projétil ou curta distância;
+- mobilidade e tipo de mapa;
+- prioridades de utilidade, sobrevivência, pressão e peel;
+- escolha opcional de heróis de conforto;
+- pool recomendado com Âncora + Complemento + Cobertura;
+- explicação de cada recomendação;
+- cobertura agregada do trio;
+- pools salvos em localStorage;
+- roster curado para validar o conceito;
+- testes automatizados;
+- Static QA.
 
-Build the smallest usable MVP that validates the central product idea before increasing scope.
+## Escopo do roster
 
-## Minimum criteria before expanding
+A primeira versão usa apenas uma seleção representativa de heróis que continuam no roster oficial. Ela **não é uma tier list** e não usa win rate ou balanceamento atual para pontuar.
 
-- usable MVP;
-- main flow working;
-- usable on mobile;
-- authentication/data when needed;
-- QA for critical flows;
-- updated README;
-- working deploy;
-- explicit V2 backlog.
+Referência de roster:
+https://overwatch.blizzard.com/pt-br/heroes/
 
-## Organization
+## Próxima versão
 
-Portfolio priority and decisions remain centralized at:
+- roster completo;
+- subfunções oficiais;
+- mapas específicos;
+- perfis salvos no backend gamer;
+- recomendações aprendendo com preferências do jogador;
+- link compartilhável.
+
+## Organização
+
+O planejamento geral permanece em:
 
 https://github.com/HelioConde/ideias-ia-lab
-
-Product code must stay in this repository, not in the Lab.
