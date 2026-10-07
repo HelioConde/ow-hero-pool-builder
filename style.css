@@ -39,3 +39,17 @@
   .role-tabs::-webkit-scrollbar{display:none}
   .role-tabs button{min-width:92px}
 }
+
+
+/* Visual audit follow-up — 07/10/2026 */
+.brand{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+}
+.ghost{min-height:40px}
+.eyebrow,.curated,.slot-label,.hero-card-top span,.tags span,.coverage b,.pool-card small{font-size:10px}
+.priority-options input,.hero-pill input{width:16px;height:16px;flex:0 0 auto}
+@media(max-width:620px){
+  .brand{min-height:40px}
+}
