@@ -1,7 +1,5 @@
 {
-  "generatedAt": "2026-10-07T06:49:52.199Z",
-  "passed": false,
-  "failures": [
-    "mobile-full.png: 11 small tap target(s)"
-  ]
+  "generatedAt": "2026-10-07T06:51:15.517Z",
+  "passed": true,
+  "failures": []
 }
