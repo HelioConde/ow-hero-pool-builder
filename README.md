@@ -1,59 +1,45 @@
-# OW Hero Pool Builder
+<div align="center">
+  <h1>🛡️ OW Hero Pool Builder</h1>
+  <p><strong>Monte um trio de heróis complementar para estudar funções e estilos de jogo em Overwatch.</strong></p>
+  <p><img alt="Status" src="https://img.shields.io/badge/status-MVP%20experimental-64748b"></p>
+</div>
 
-**Monte um trio complementar de heróis para Overwatch a partir de função, estilo, mecânicas e preferências pessoais.**
+## Como funciona
 
-**Como usar o conceito:** escolha Tank, Dano ou Suporte, indique estilo de jogo e preferências mecânicas e examine Âncora + Complemento + Cobertura.
+Escolha uma função (**Tank, Dano ou Suporte**), indique como gosta de jogar e examine a sugestão de três heróis com papéis complementares:
 
-**Status:** MVP com roster curado para validar o conceito. Não é uma tier list, nem acompanha automaticamente o balanceamento atual de Overwatch.
+**Âncora** — escolha principal.  
+**Complemento** — alternativa para outras situações.  
+**Cobertura** — opção para necessidades não atendidas pelas primeiras escolhas.
 
-> Projeto independente, não afiliado à Blizzard Entertainment.
+## Preferências consideradas
 
-![Status](https://img.shields.io/badge/status-em%20evolução-64748b)
+| Categoria | Opções |
+| --- | --- |
+| Estilo | Dive, Brawl e Poke |
+| Mecânica | Hitscan, tracking, projéteis ou curta distância |
+| Jogo | Mobilidade e tipo de mapa |
+| Prioridade | Utilidade, sobrevivência, pressão e peel |
+| Preferência pessoal | Heróis de conforto |
 
----
+O algoritmo explica a recomendação e mostra a cobertura coletiva. Os pools escolhidos podem ser salvos em `localStorage`.
 
-Monta um pool complementar de heróis de Overwatch por função, estilo, mapa e preferência mecânica.
+**Atenção:** o roster é uma **amostra curada para validar a ideia**. Não é uma tier list, não utiliza win rate atual nem acompanha automaticamente os patches do Overwatch.
 
-**Area:** Overwatch  
-**Priority:** P2  
-**Queue position original:** #28
+## Executar localmente
 
-## Estado atual
+```bash
+git clone https://github.com/HelioConde/ow-hero-pool-builder.git
+cd ow-hero-pool-builder
+python -m http.server 8000
+```
 
-MVP funcional iniciado em 06/10/2026.
+Abra `http://localhost:8000`.
 
-- Tank, Dano e Suporte;
-- estilos Dive, Brawl e Poke;
-- preferência por hitscan, tracking, projétil ou curta distância;
-- mobilidade e tipo de mapa;
-- prioridades de utilidade, sobrevivência, pressão e peel;
-- escolha opcional de heróis de conforto;
-- pool recomendado com Âncora + Complemento + Cobertura;
-- explicação de cada recomendação;
-- cobertura agregada do trio;
-- pools salvos em localStorage;
-- roster curado para validar o conceito;
-- testes automatizados;
-- Static QA.
+`app.js` implementa a interface, `core.js` concentra a lógica e `tests/` reúne testes do projeto. O comando `npm run screenshots` gera capturas quando o ambiente está preparado.
 
-## Escopo do roster
+## Próximos passos
 
-A primeira versão usa apenas uma seleção representativa de heróis que continuam no roster oficial. Ela **não é uma tier list** e não usa win rate ou balanceamento atual para pontuar.
+Validar se o trio realmente ajuda jogadores a escolher um pool, atualizar o roster quando necessário e revisar responsividade/acessibilidade. A expansão deve depender de feedback, não apenas de mais opções.
 
-Referência de roster:
-https://overwatch.blizzard.com/pt-br/heroes/
-
-## Próxima versão
-
-- roster completo;
-- subfunções oficiais;
-- mapas específicos;
-- perfis salvos no backend gamer;
-- recomendações aprendendo com preferências do jogador;
-- link compartilhável.
-
-## Organização
-
-O planejamento geral permanece em:
-
-https://github.com/HelioConde/ideias-ia-lab
+Projeto independente, não oficial. Criado por [Hélio Conde](https://github.com/HelioConde).
