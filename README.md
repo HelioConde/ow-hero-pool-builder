@@ -1,5 +1,17 @@
 # OW Hero Pool Builder
 
+**Monte um trio complementar de heróis para Overwatch a partir de função, estilo, mecânicas e preferências pessoais.**
+
+**Como usar o conceito:** escolha Tank, Dano ou Suporte, indique estilo de jogo e preferências mecânicas e examine Âncora + Complemento + Cobertura.
+
+**Status:** MVP com roster curado para validar o conceito. Não é uma tier list, nem acompanha automaticamente o balanceamento atual de Overwatch.
+
+> Projeto independente, não afiliado à Blizzard Entertainment.
+
+![Status](https://img.shields.io/badge/status-em%20evolução-64748b)
+
+---
+
 Monta um pool complementar de heróis de Overwatch por função, estilo, mapa e preferência mecânica.
 
 **Area:** Overwatch  
